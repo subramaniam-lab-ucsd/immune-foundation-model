@@ -9,4 +9,7 @@
 4. Restart kernel
 
 ## Steps to load data 
-https://github.com/bowang-lab/scGPT/tree/main/data/cellxgene
+
+## Additional Docs
+1. scGPT download docs - https://github.com/bowang-lab/scGPT/tree/main/data/cellxgene
+2. SOMA (Stack of Matrices, Annotated) docs - https://github.com/single-cell-data/SOMA/blob/main/abstract_specification.md
