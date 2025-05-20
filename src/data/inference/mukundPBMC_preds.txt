@@ -1,0 +1,461 @@
+Cell Type: B lymphoblast
+                                   predicted_celltype  count  percentage
+43                                         lymphocyte    135   51.923077
+57                                natural killer cell     46   17.692308
+20                                             T cell     23    8.846154
+36    effector memory CD8-positive, alpha-beta T cell     13    5.000000
+13                    CD8-positive, alpha-beta T cell      8    3.076923
+37                                        erythrocyte      7    2.692308
+26     central memory CD4-positive, alpha-beta T cell      6    2.307692
+10                    CD4-positive, alpha-beta T cell      4    1.538462
+66                                  regulatory T cell      4    1.538462
+25                                         blood cell      3    1.153846
+6   CD16-positive, CD56-dim natural killer cell, h...      2    0.769231
+11          CD4-positive, alpha-beta cytotoxic T cell      2    0.769231
+12             CD4-positive, alpha-beta memory T cell      1    0.384615
+19                                    IgG plasmablast      1    0.384615
+34           effector CD8-positive, alpha-beta T cell      1    0.384615
+38                                 gamma-delta T cell      1    0.384615
+42                                immature neutrophil      1    0.384615
+49                                           monocyte      1    0.384615
+61                                        plasmablast      1    0.384615
+--------------------------------------------------
+Cell Type: CD14+ Monocytes
+                                    predicted_celltype  count  percentage
+99                                  classical monocyte   3548   42.639106
+72                              CD14-positive monocyte   3511   42.194448
+107                                        erythrocyte    306    3.677443
+102                              dendritic cell, human    186    2.235308
+119                                           monocyte    158    1.898810
+115                                   mature NK T cell    100    1.201779
+134                                           platelet     95    1.141690
+71                    CD14-low, CD16-positive monocyte     63    0.757121
+100                        conventional dendritic cell     52    0.624925
+129                             non-classical monocyte     41    0.492729
+96      central memory CD4-positive, alpha-beta T cell     27    0.324480
+85              CD8-positive, alpha-beta memory T cell     23    0.276409
+125  naive thymus-derived CD4-positive, alpha-beta ...     22    0.264391
+87                                     IgA plasmablast     20    0.240356
+92                                    T-helper 22 cell     16    0.192285
+73     CD14-positive, CD16-negative classical monocyte     13    0.156231
+108                                 gamma-delta T cell     13    0.156231
+120                           mucosal invariant T cell     12    0.144213
+89                                     IgG plasmablast     11    0.132196
+123                                       naive B cell     11    0.132196
+76   CD16-positive, CD56-dim natural killer cell, h...      8    0.096142
+106    effector memory CD8-positive, alpha-beta T cell      8    0.096142
+126  naive thymus-derived CD8-positive, alpha-beta ...      8    0.096142
+127                                natural killer cell      8    0.096142
+137                          transitional stage B cell      8    0.096142
+118                                      memory B cell      6    0.072107
+82              CD4-positive, alpha-beta memory T cell      5    0.060089
+91                            T follicular helper cell      5    0.060089
+101                                     dendritic cell      5    0.060089
+121                                       myeloid cell      5    0.060089
+122                             myeloid dendritic cell      4    0.048071
+75   CD16-negative, CD56-bright natural killer cell...      3    0.036053
+70                                              B cell      2    0.024036
+98                        class switched memory B cell      2    0.024036
+109                                        granulocyte      2    0.024036
+112                                immature neutrophil      2    0.024036
+128                                         neutrophil      2    0.024036
+74               CD14-positive, CD16-positive monocyte      1    0.012018
+77   CD34-positive, CD38-negative hematopoietic ste...      1    0.012018
+83                     CD8-positive, alpha-beta T cell      1    0.012018
+86                                     IgA plasma cell      1    0.012018
+95                                          blood cell      1    0.012018
+104           effector CD8-positive, alpha-beta T cell      1    0.012018
+113                                         lymphocyte      1    0.012018
+124                                       naive T cell      1    0.012018
+131                                        plasmablast      1    0.012018
+132                        plasmacytoid dendritic cell      1    0.012018
+--------------------------------------------------
+Cell Type: CD16+ Monocytes
+                                    predicted_celltype  count  percentage
+199                             non-classical monocyte    334   47.988506
+185                                   mature NK T cell    243   34.913793
+189                                           monocyte     50    7.183908
+141                   CD14-low, CD16-positive monocyte     48    6.896552
+169                                 classical monocyte      6    0.862069
+142                             CD14-positive monocyte      2    0.287356
+146  CD16-positive, CD56-dim natural killer cell, h...      2    0.287356
+147  CD34-positive, CD38-negative hematopoietic ste...      2    0.287356
+177                                        erythrocyte      2    0.287356
+155             CD8-positive, alpha-beta memory T cell      1    0.143678
+161                           T follicular helper cell      1    0.143678
+166     central memory CD4-positive, alpha-beta T cell      1    0.143678
+168                       class switched memory B cell      1    0.143678
+192                             myeloid dendritic cell      1    0.143678
+197                                natural killer cell      1    0.143678
+202                        plasmacytoid dendritic cell      1    0.143678
+--------------------------------------------------
+Cell Type: CD34+ Progenitor cells
+                                    predicted_celltype  count  percentage
+251                            hematopoietic stem cell     47   66.197183
+217  CD34-positive, CD38-negative hematopoietic ste...     10   14.084507
+258                                      memory B cell      4    5.633803
+233   activated CD4-positive, alpha-beta T cell, human      3    4.225352
+276                                  regulatory T cell      2    2.816901
+229                                    IgG plasmablast      1    1.408451
+236     central memory CD4-positive, alpha-beta T cell      1    1.408451
+240                        conventional dendritic cell      1    1.408451
+250                       hematopoietic precursor cell      1    1.408451
+274                                           platelet      1    1.408451
+--------------------------------------------------
+Cell Type: CD4+ T cells
+                                    predicted_celltype  count  percentage
+306     central memory CD4-positive, alpha-beta T cell   1660   45.479452
+335  naive thymus-derived CD4-positive, alpha-beta ...    815   22.328767
+346                                  regulatory T cell    374   10.246575
+302                                   T-helper 22 cell    249    6.821918
+317                                        erythrocyte    137    3.753425
+290                    CD4-positive, alpha-beta T cell    113    3.095890
+336  naive thymus-derived CD8-positive, alpha-beta ...     48    1.315068
+303   activated CD4-positive, alpha-beta T cell, human     31    0.849315
+326                           mature alpha-beta T cell     31    0.849315
+318                                 gamma-delta T cell     28    0.767123
+330                           mucosal invariant T cell     26    0.712329
+292             CD4-positive, alpha-beta memory T cell     25    0.684932
+316    effector memory CD8-positive, alpha-beta T cell     24    0.657534
+293                    CD8-positive, alpha-beta T cell     17    0.465753
+301                           T follicular helper cell     13    0.356164
+291          CD4-positive, alpha-beta cytotoxic T cell     11    0.301370
+282                             CD14-positive monocyte     10    0.273973
+300                                             T cell      8    0.219178
+295             CD8-positive, alpha-beta memory T cell      4    0.109589
+329                                           monocyte      4    0.109589
+280                                             B cell      2    0.054795
+308                       class switched memory B cell      2    0.054795
+311                                     dendritic cell      2    0.054795
+314           effector CD8-positive, alpha-beta T cell      2    0.054795
+323                                         lymphocyte      2    0.054795
+344                                           platelet      2    0.054795
+286  CD16-positive, CD56-dim natural killer cell, h...      1    0.027397
+289                         CD4-positive helper T cell      1    0.027397
+299                                    IgG plasmablast      1    0.027397
+312                              dendritic cell, human      1    0.027397
+313                          double negative thymocyte      1    0.027397
+315    effector memory CD4-positive, alpha-beta T cell      1    0.027397
+325                                   mature NK T cell      1    0.027397
+327                                      megakaryocyte      1    0.027397
+333                                       naive B cell      1    0.027397
+348                                            unknown      1    0.027397
+--------------------------------------------------
+Cell Type: CD8+ T cells
+                                    predicted_celltype  count  percentage
+386    effector memory CD8-positive, alpha-beta T cell   1626   55.895497
+376     central memory CD4-positive, alpha-beta T cell    311   10.690959
+388                                 gamma-delta T cell    217    7.459608
+361          CD4-positive, alpha-beta cytotoxic T cell    198    6.806463
+384           effector CD8-positive, alpha-beta T cell    172    5.912685
+387                                        erythrocyte     76    2.612582
+414                                           platelet     57    1.959436
+400                           mucosal invariant T cell     53    1.821932
+407                                natural killer cell     45    1.546923
+363                    CD8-positive, alpha-beta T cell     41    1.409419
+365             CD8-positive, alpha-beta memory T cell     19    0.653145
+405  naive thymus-derived CD4-positive, alpha-beta ...     18    0.618769
+356  CD16-positive, CD56-dim natural killer cell, h...     13    0.446889
+370                                             T cell     13    0.446889
+355  CD16-negative, CD56-bright natural killer cell...     10    0.343761
+374   activated CD8-positive, alpha-beta T cell, human      8    0.275009
+416                                  regulatory T cell      8    0.275009
+372                                   T-helper 22 cell      6    0.206256
+362             CD4-positive, alpha-beta memory T cell      3    0.103128
+360                    CD4-positive, alpha-beta T cell      2    0.068752
+373   activated CD4-positive, alpha-beta T cell, human      2    0.068752
+393                                         lymphocyte      2    0.068752
+395                                   mature NK T cell      2    0.068752
+406  naive thymus-derived CD8-positive, alpha-beta ...      2    0.068752
+352                             CD14-positive monocyte      1    0.034376
+364          CD8-positive, alpha-beta cytotoxic T cell      1    0.034376
+377     central memory CD8-positive, alpha-beta T cell      1    0.034376
+394                                     malignant cell      1    0.034376
+396                           mature alpha-beta T cell      1    0.034376
+--------------------------------------------------
+Cell Type: Intermediate monocytes
+                   predicted_celltype  count  percentage
+479            non-classical monocyte    160   35.087719
+465                  mature NK T cell     80   17.543860
+421  CD14-low, CD16-positive monocyte     78   17.105263
+449                classical monocyte     59   12.938596
+422            CD14-positive monocyte     51   11.184211
+469                          monocyte     23    5.043860
+452             dendritic cell, human      4    0.877193
+450       conventional dendritic cell      1    0.219298
+--------------------------------------------------
+Cell Type: Low-density basophils
+                                    predicted_celltype  count  percentage
+497  CD34-positive, CD38-negative hematopoietic ste...      4   30.769231
+531                            hematopoietic stem cell      3   23.076923
+502             CD4-positive, alpha-beta memory T cell      1    7.692308
+516     central memory CD4-positive, alpha-beta T cell      1    7.692308
+520                        conventional dendritic cell      1    7.692308
+527                                        erythrocyte      1    7.692308
+528                                 gamma-delta T cell      1    7.692308
+530                       hematopoietic precursor cell      1    7.692308
+--------------------------------------------------
+Cell Type: Low-density neutrophils
+                                    predicted_celltype  count  percentage
+618                                         neutrophil    209   32.707355
+602                                immature neutrophil    187   29.264476
+589                                 classical monocyte    101   15.805947
+586     central memory CD4-positive, alpha-beta T cell     23    3.599374
+597                                        erythrocyte     18    2.816901
+581                           T follicular helper cell     17    2.660407
+611                                       myeloid cell     17    2.660407
+624                                           platelet     17    2.660407
+566  CD16-positive, CD56-dim natural killer cell, h...     12    1.877934
+615  naive thymus-derived CD4-positive, alpha-beta ...      7    1.095462
+562                             CD14-positive monocyte      6    0.938967
+565  CD16-negative, CD56-bright natural killer cell...      5    0.782473
+596    effector memory CD8-positive, alpha-beta T cell      4    0.625978
+582                                   T-helper 22 cell      2    0.312989
+598                                 gamma-delta T cell      2    0.312989
+603                                         lymphocyte      2    0.312989
+617                                natural killer cell      2    0.312989
+570                    CD4-positive, alpha-beta T cell      1    0.156495
+572             CD4-positive, alpha-beta memory T cell      1    0.156495
+573                    CD8-positive, alpha-beta T cell      1    0.156495
+577                                    IgA plasmablast      1    0.156495
+594           effector CD8-positive, alpha-beta T cell      1    0.156495
+610                           mucosal invariant T cell      1    0.156495
+622                        plasmacytoid dendritic cell      1    0.156495
+626                                  regulatory T cell      1    0.156495
+--------------------------------------------------
+Cell Type: MAIT cells
+                                    predicted_celltype  count  percentage
+656     central memory CD4-positive, alpha-beta T cell    179   28.731942
+680                           mucosal invariant T cell    138   22.150883
+666    effector memory CD8-positive, alpha-beta T cell    100   16.051364
+652                                   T-helper 22 cell     89   14.285714
+668                                 gamma-delta T cell     31    4.975923
+685  naive thymus-derived CD4-positive, alpha-beta ...     15    2.407705
+696                                  regulatory T cell     13    2.086677
+641          CD4-positive, alpha-beta cytotoxic T cell     12    1.926164
+686  naive thymus-derived CD8-positive, alpha-beta ...     12    1.926164
+667                                        erythrocyte      9    1.444623
+650                                             T cell      6    0.963082
+642             CD4-positive, alpha-beta memory T cell      4    0.642055
+651                           T follicular helper cell      4    0.642055
+645             CD8-positive, alpha-beta memory T cell      3    0.481541
+640                    CD4-positive, alpha-beta T cell      2    0.321027
+643                    CD8-positive, alpha-beta T cell      2    0.321027
+657     central memory CD8-positive, alpha-beta T cell      1    0.160514
+664           effector CD8-positive, alpha-beta T cell      1    0.160514
+665    effector memory CD4-positive, alpha-beta T cell      1    0.160514
+687                                natural killer cell      1    0.160514
+--------------------------------------------------
+Cell Type: Megakaryocytes
+      predicted_celltype  count  percentage
+764             platelet    573   99.479167
+737          erythrocyte      2    0.347222
+742  immature neutrophil      1    0.173611
+--------------------------------------------------
+Cell Type: Myeloid dendritic cells
+                     predicted_celltype  count  percentage
+800         conventional dendritic cell    264   71.159030
+822              myeloid dendritic cell     50   13.477089
+802               dendritic cell, human     27    7.277628
+799                  classical monocyte     13    3.504043
+801                      dendritic cell      8    2.156334
+772              CD14-positive monocyte      3    0.808625
+807                         erythrocyte      1    0.269542
+811             hematopoietic stem cell      1    0.269542
+818                       memory B cell      1    0.269542
+829              non-classical monocyte      1    0.269542
+833  plasmacytoid dendritic cell, human      1    0.269542
+834                            platelet      1    0.269542
+--------------------------------------------------
+Cell Type: NK cells
+                                    predicted_celltype  count  percentage
+897                                natural killer cell   1616   39.357038
+846  CD16-positive, CD56-dim natural killer cell, h...   1342   32.683877
+878                                 gamma-delta T cell    311    7.574282
+876    effector memory CD8-positive, alpha-beta T cell    268    6.527034
+845  CD16-negative, CD56-bright natural killer cell...    210    5.114467
+877                                        erythrocyte    107    2.605943
+866     central memory CD4-positive, alpha-beta T cell     57    1.388212
+874           effector CD8-positive, alpha-beta T cell     56    1.363858
+851          CD4-positive, alpha-beta cytotoxic T cell     32    0.779347
+855             CD8-positive, alpha-beta memory T cell     32    0.779347
+890                           mucosal invariant T cell     21    0.511447
+885                                   mature NK T cell     13    0.316610
+852             CD4-positive, alpha-beta memory T cell      7    0.170482
+853                    CD8-positive, alpha-beta T cell      6    0.146128
+883                                         lymphocyte      5    0.121773
+895  naive thymus-derived CD4-positive, alpha-beta ...      5    0.121773
+861                           T follicular helper cell      3    0.073064
+906                                  regulatory T cell      3    0.073064
+860                                             T cell      2    0.048709
+888                                      memory B cell      2    0.048709
+842                             CD14-positive monocyte      1    0.024355
+854          CD8-positive, alpha-beta cytotoxic T cell      1    0.024355
+857                                    IgA plasmablast      1    0.024355
+867     central memory CD8-positive, alpha-beta T cell      1    0.024355
+869                                 classical monocyte      1    0.024355
+893                                       naive B cell      1    0.024355
+899                             non-classical monocyte      1    0.024355
+904                                           platelet      1    0.024355
+--------------------------------------------------
+Cell Type: Naïve B cells
+                                    predicted_celltype  count  percentage
+963                                       naive B cell   1360   82.725061
+910                                             B cell     58    3.527981
+977                          transitional stage B cell     50    3.041363
+958                                      memory B cell     36    2.189781
+938                       class switched memory B cell     19    1.155718
+947                                        erythrocyte     19    1.155718
+954                                     malignant cell     18    1.094891
+967                                natural killer cell     15    0.912409
+948                                 gamma-delta T cell      8    0.486618
+946    effector memory CD8-positive, alpha-beta T cell      7    0.425791
+925             CD8-positive, alpha-beta memory T cell      6    0.364964
+928                                    IgG plasma cell      6    0.364964
+974                                           platelet      6    0.364964
+936     central memory CD4-positive, alpha-beta T cell      4    0.243309
+965  naive thymus-derived CD4-positive, alpha-beta ...      4    0.243309
+966  naive thymus-derived CD8-positive, alpha-beta ...      4    0.243309
+918                         CD38-negative naive B cell      3    0.182482
+926                                    IgA plasma cell      3    0.182482
+971                                        plasmablast      3    0.182482
+972                        plasmacytoid dendritic cell      3    0.182482
+927                                    IgA plasmablast      2    0.121655
+970                                        plasma cell      2    0.121655
+976                                  regulatory T cell      2    0.121655
+912                             CD14-positive monocyte      1    0.060827
+931                           T follicular helper cell      1    0.060827
+934   activated CD8-positive, alpha-beta T cell, human      1    0.060827
+942                              dendritic cell, human      1    0.060827
+951                            hematopoietic stem cell      1    0.060827
+953                                         lymphocyte      1    0.060827
+--------------------------------------------------
+Cell Type: Naïve CD4+ T cells
+                                     predicted_celltype  count  percentage
+1035  naive thymus-derived CD4-positive, alpha-beta ...   2121   63.808664
+1006     central memory CD4-positive, alpha-beta T cell    659   19.825511
+1018                                 gamma-delta T cell    138    4.151625
+1046                                  regulatory T cell     94    2.827918
+1017                                        erythrocyte     88    2.647413
+990                     CD4-positive, alpha-beta T cell     59    1.774970
+1036  naive thymus-derived CD8-positive, alpha-beta ...     47    1.413959
+1003   activated CD4-positive, alpha-beta T cell, human     36    1.083032
+992              CD4-positive, alpha-beta memory T cell     16    0.481348
+1026                           mature alpha-beta T cell     13    0.391095
+1016    effector memory CD8-positive, alpha-beta T cell     12    0.361011
+993                     CD8-positive, alpha-beta T cell     10    0.300842
+1001                           T follicular helper cell      8    0.240674
+1002                                   T-helper 22 cell      7    0.210590
+1000                                             T cell      4    0.120337
+1030                           mucosal invariant T cell      3    0.090253
+1033                                       naive B cell      3    0.090253
+980                                              B cell      1    0.030084
+991           CD4-positive, alpha-beta cytotoxic T cell      1    0.030084
+999                                     IgG plasmablast      1    0.030084
+1008                       class switched memory B cell      1    0.030084
+1024                                     malignant cell      1    0.030084
+1045                                    progenitor cell      1    0.030084
+--------------------------------------------------
+Cell Type: Naïve CD8+ T cells
+                                     predicted_celltype  count  percentage
+1106  naive thymus-derived CD8-positive, alpha-beta ...    224   58.333333
+1105  naive thymus-derived CD4-positive, alpha-beta ...     82   21.354167
+1076     central memory CD4-positive, alpha-beta T cell     51   13.281250
+1086    effector memory CD8-positive, alpha-beta T cell      9    2.343750
+1063                    CD8-positive, alpha-beta T cell      7    1.822917
+1088                                 gamma-delta T cell      5    1.302083
+1087                                        erythrocyte      4    1.041667
+1060                    CD4-positive, alpha-beta T cell      1    0.260417
+1077     central memory CD8-positive, alpha-beta T cell      1    0.260417
+--------------------------------------------------
+Cell Type: Non-switched memory B cells
+                                  predicted_celltype  count  percentage
+1168                                   memory B cell    292   37.008872
+1187                       transitional stage B cell    206   26.108999
+1173                                    naive B cell    153   19.391635
+1120                                          B cell     53    6.717364
+1148                    class switched memory B cell     53    6.717364
+1189                        unswitched memory B cell      9    1.140684
+1181                                     plasmablast      4    0.506971
+1180                                     plasma cell      3    0.380228
+1182                     plasmacytoid dendritic cell      3    0.380228
+1128                      CD38-negative naive B cell      2    0.253485
+1136                                 IgA plasma cell      2    0.253485
+1135          CD8-positive, alpha-beta memory T cell      1    0.126743
+1137                                 IgA plasmablast      1    0.126743
+1146  central memory CD4-positive, alpha-beta T cell      1    0.126743
+1157                                     erythrocyte      1    0.126743
+1158                              gamma-delta T cell      1    0.126743
+1160                    hematopoietic precursor cell      1    0.126743
+1164                                  malignant cell      1    0.126743
+1177                             natural killer cell      1    0.126743
+1186                               regulatory T cell      1    0.126743
+--------------------------------------------------
+Cell Type: Plasmablasts
+                                   predicted_celltype  count  percentage
+1251                                      plasmablast    167   42.385787
+1209                                  IgG plasmablast     96   24.365482
+1207                                  IgA plasmablast     49   12.436548
+1208                                  IgG plasma cell     28    7.106599
+1206                                  IgA plasma cell     21    5.329949
+1227                                      erythrocyte      7    1.776650
+1250                                      plasma cell      4    1.015228
+1257                        transitional stage B cell      4    1.015228
+1218                     class switched memory B cell      3    0.761421
+1216   central memory CD4-positive, alpha-beta T cell      2    0.507614
+1219                               classical monocyte      2    0.507614
+1222                            dendritic cell, human      2    0.507614
+1233                                       lymphocyte      2    0.507614
+1205           CD8-positive, alpha-beta memory T cell      1    0.253807
+1211                         T follicular helper cell      1    0.253807
+1226  effector memory CD8-positive, alpha-beta T cell      1    0.253807
+1238                                    memory B cell      1    0.253807
+1249                           non-classical monocyte      1    0.253807
+1252                      plasmacytoid dendritic cell      1    0.253807
+1254                                         platelet      1    0.253807
+--------------------------------------------------
+Cell Type: Plasmacytoid dendritic cells
+                      predicted_celltype  count  percentage
+1323  plasmacytoid dendritic cell, human    222   75.254237
+1322         plasmacytoid dendritic cell     40   13.559322
+1290         conventional dendritic cell     10    3.389831
+1311                        myeloid cell      5    1.694915
+1277                     IgA plasmablast      4    1.355932
+1289                  classical monocyte      3    1.016949
+1324                            platelet      2    0.677966
+1327           transitional stage B cell      2    0.677966
+1261    CD14-low, CD16-positive monocyte      1    0.338983
+1278                     IgG plasma cell      1    0.338983
+1291                      dendritic cell      1    0.338983
+1312              myeloid dendritic cell      1    0.338983
+1313                        naive B cell      1    0.338983
+1317                 natural killer cell      1    0.338983
+1319              non-classical monocyte      1    0.338983
+--------------------------------------------------
+Cell Type: gd T cells
+                                     predicted_celltype  count  percentage
+1366    effector memory CD8-positive, alpha-beta T cell    169   35.281837
+1380                           mucosal invariant T cell     81   16.910230
+1364           effector CD8-positive, alpha-beta T cell     79   16.492693
+1356     central memory CD4-positive, alpha-beta T cell     36    7.515658
+1343                    CD8-positive, alpha-beta T cell     22    4.592902
+1368                                 gamma-delta T cell     19    3.966597
+1367                                        erythrocyte     14    2.922756
+1386  naive thymus-derived CD8-positive, alpha-beta ...     13    2.713987
+1352                                   T-helper 22 cell     12    2.505219
+1341          CD4-positive, alpha-beta cytotoxic T cell      5    1.043841
+1385  naive thymus-derived CD4-positive, alpha-beta ...      5    1.043841
+1375                                   mature NK T cell      4    0.835073
+1332                             CD14-positive monocyte      3    0.626305
+1345             CD8-positive, alpha-beta memory T cell      3    0.626305
+1335  CD16-negative, CD56-bright natural killer cell...      2    0.417537
+1340                    CD4-positive, alpha-beta T cell      2    0.417537
+1379                                           monocyte      2    0.417537
+1387                                natural killer cell      2    0.417537
+1330                                             B cell      1    0.208768
+1336  CD16-positive, CD56-dim natural killer cell, h...      1    0.208768
+1346                                    IgA plasma cell      1    0.208768
+1350                                             T cell      1    0.208768
+1373                                         lymphocyte      1    0.208768
+1396                                  regulatory T cell      1    0.208768
+--------------------------------------------------
