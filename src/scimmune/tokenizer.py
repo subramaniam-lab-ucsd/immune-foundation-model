@@ -14,16 +14,11 @@ class ScImmuneTokenizer(PreTrainedTokenizer):
         unk_token: str = "<unk>",
         **kwargs
     ):
-        # Load vocab using custom method
-        self.vocab_map = load_vocab(vocab_file)
-        self.ids_to_tokens = {v: k for k, v in self.vocab_map.items()}
-        self.tokens_to_ids = self.vocab_map
+        # Load vocab
+        self.vocab_file = vocab_file
+        self.vocab = load_vocab(vocab_file)
+        self.ids_to_tokens = {v: k for k, v in self.vocab.items()}
 
-        self.cls_token = cls_token
-        self.pad_token = pad_token
-        self.unk_token = unk_token
-
-        # Required by HF PreTrainedTokenizer
         super().__init__(
             cls_token=cls_token,
             pad_token=pad_token,
@@ -31,24 +26,29 @@ class ScImmuneTokenizer(PreTrainedTokenizer):
             **kwargs
         )
 
-    def get_vocab(self):
-        return self.tokens_to_ids
+        # Register special token IDs
+        self.cls_token_id = self.convert_tokens_to_ids(cls_token)
+        self.pad_token_id = self.convert_tokens_to_ids(pad_token)
+        self.unk_token_id = self.convert_tokens_to_ids(unk_token)
 
-    def _tokenize(self, text):
+    def get_vocab(self):
+        return self.vocab
+
+    def _tokenize(self, text: str) -> List[str]:
         return [text]
 
-    def _convert_token_to_id(self, token):
-        return self.tokens_to_ids.get(token, self.tokens_to_ids[self.unk_token])
+    def _convert_token_to_id(self, token: str) -> int:
+        return self.vocab.get(token, self.vocab.get(self.unk_token, 0))
 
-    def _convert_id_to_token(self, index):
+    def _convert_id_to_token(self, index: int) -> str:
         return self.ids_to_tokens.get(index, self.unk_token)
 
-    def convert_tokens_to_ids(self, tokens):
+    def convert_tokens_to_ids(self, tokens: Union[str, List[str]]) -> Union[int, List[int]]:
         if isinstance(tokens, str):
             return self._convert_token_to_id(tokens)
-        return [self._convert_token_to_id(token) for token in tokens]
+        return [self._convert_token_to_id(t) for t in tokens]
 
-    def convert_ids_to_tokens(self, ids):
+    def convert_ids_to_tokens(self, ids: Union[int, List[int]]) -> Union[str, List[str]]:
         if isinstance(ids, int):
             return self._convert_id_to_token(ids)
         return [self._convert_id_to_token(i) for i in ids]
@@ -88,20 +88,17 @@ class ScImmuneTokenizer(PreTrainedTokenizer):
 
             tokens = []
 
-            # Add metadata tokens first
             if metadata_tokens:
                 tokens.extend(metadata_tokens)
 
-            # Add cls token
             if append_cls:
                 tokens.append(self.cls_token)
                 values = np.insert(values, 0, 0)
 
-            # Add gene tokens
             tokens.extend(genes)
 
             input_ids = torch.tensor(
-                [self.tokens_to_ids.get(t, self.tokens_to_ids[self.unk_token]) for t in tokens],
+                [self.convert_tokens_to_ids(t) for t in tokens],
                 dtype=torch.long
             )
             values = torch.from_numpy(values).float()
@@ -109,3 +106,17 @@ class ScImmuneTokenizer(PreTrainedTokenizer):
             tokenized_data.append((input_ids, values))
 
         return tokenized_data
+
+    def save_vocab(self, save_directory: str) -> str:
+        """Save the updated vocab to a file in save_directory/vocab.json"""
+        import os
+        import json
+
+        file_path = os.path.join(save_directory, "vocab.json")
+        os.makedirs(save_directory, exist_ok=True)
+
+        # Inverse mapping to make token → ID
+        vocab_to_save = self.vocab
+        with open(file_path, "w") as f:
+            json.dump(vocab_to_save, f, indent=2)
+        return file_path
