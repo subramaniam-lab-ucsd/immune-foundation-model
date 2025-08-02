@@ -1,10 +1,16 @@
 import scanpy as sc
+import numpy as np
+
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.metrics import silhouette_score, adjusted_rand_score, normalized_mutual_info_score
 import seaborn as sns
 import scvi
+
+
+def cos_sim(a, b):
+    return np.dot(a, b) / (np.linalg.norm(a) * np.linalg.norm(b))
 
 def compute_scvi_embedding(adata, layer="counts", batch_key="dataset_id", n_layers=2, n_latent=30, gene_likelihood="nb", latent_key="X_scvi"):
     """
