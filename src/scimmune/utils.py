@@ -4,6 +4,39 @@ import numpy as np
 
 import numpy as np
 from typing import Any, Dict, List
+import torch 
+
+def assign_metadata_embeddings(
+    tokenizer,
+    model,
+    node2vec_model,
+    tag_list: list = ["CELLTYPE", "TISSUE", "DISEASE"]
+):
+    """
+    Assigns Node2Vec embeddings to metadata tokens in the embedding layer.
+
+    Args:
+        tokenizer: Your ScImmuneTokenizer instance (must include metadata tokens)
+        model: Your ScImmuneModel (must have get_input_embeddings() method)
+        node2vec_model: Trained gensim Word2Vec model
+        tag_list: List of metadata fields to assign (e.g., CELLTYPE, TISSUE)
+    """
+    embedding_layer = model.get_input_embeddings()
+
+    for token, idx in tokenizer.get_vocab().items():
+        if not token.startswith("<") or "=" not in token:
+            continue
+
+        tag, ontology_id = token[1:-1].split("=")
+        if tag not in tag_list:
+            continue
+
+        if ontology_id in node2vec_model.wv:
+            vector = torch.tensor(node2vec_model.wv[ontology_id])
+            if vector.shape[0] != embedding_layer.embedding_dim:
+                raise ValueError(f"Vector for {ontology_id} has wrong shape.")
+            with torch.no_grad():
+                embedding_layer.weight[idx] = vector
 
 def generate_metadata_embeddings(node2vecModel: Any) -> Dict[str, np.ndarray]:
     """
