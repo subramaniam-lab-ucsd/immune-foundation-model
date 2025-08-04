@@ -275,6 +275,12 @@ class ScImmuneModel(ScImmunePreTrainedModel):
 
         return output_dict
 
+    def get_input_embeddings(self):
+        return self.gene_encoder["embedding"]
+
+    def set_input_embeddings(self, new_embeddings):
+        self.gene_encoder["embedding"] = new_embeddings
+
     def _init_weights(self, module):
         super()._init_weights(module)
         if isinstance(module, nn.Linear):
