@@ -6,37 +6,52 @@ import numpy as np
 from typing import Any, Dict, List
 import torch 
 
-def assign_metadata_embeddings(
-    tokenizer,
-    model,
-    node2vec_model,
-    tag_list: list = ["CELLTYPE", "TISSUE", "DISEASE"]
+import torch
+from gensim.models import Word2Vec
+from transformers import PreTrainedTokenizer, PreTrainedModel
+
+
+def assign_ontology_embeddings(
+    tokenizer: PreTrainedTokenizer,
+    model: PreTrainedModel,
+    node2vec_model_path: str,
+    tag: str,
 ):
     """
-    Assigns Node2Vec embeddings to metadata tokens in the embedding layer.
+    Assign ontology-based Node2Vec embeddings to all metadata tokens with a given tag.
 
     Args:
-        tokenizer: Your ScImmuneTokenizer instance (must include metadata tokens)
-        model: Your ScImmuneModel (must have get_input_embeddings() method)
-        node2vec_model: Trained gensim Word2Vec model
-        tag_list: List of metadata fields to assign (e.g., CELLTYPE, TISSUE)
+        tokenizer (PreTrainedTokenizer): Tokenizer with metadata tokens added.
+        model (PreTrainedModel): HF-compatible model with get_input_embeddings().
+        node2vec_model_path (str): Path to trained gensim Word2Vec model for the ontology (e.g. DOID, CL).
+        tag (str): Metadata tag to match (e.g., "cell_type", "tissue", "disease").
     """
+    # Load the Node2Vec model
+    node2vec_model = Word2Vec.load(node2vec_model_path)
+    embedding_dim = model.get_input_embeddings().embedding_dim
     embedding_layer = model.get_input_embeddings()
 
-    for token, idx in tokenizer.get_vocab().items():
-        if not token.startswith("<") or "=" not in token:
+    num_assigned = 0
+    for token, token_id in tokenizer.get_vocab().items():
+        # Check if token is in metadata format: <tag=ONTOLOGY_ID>
+        if not (token.startswith("<") and token.endswith(">") and "=" in token):
             continue
 
-        tag, ontology_id = token[1:-1].split("=")
-        if tag not in tag_list:
-            continue
+        token_tag, ontology_id = token[1:-1].split("=")
+        if token_tag != tag:
+            continue  # Skip tokens from other tags
 
         if ontology_id in node2vec_model.wv:
-            vector = torch.tensor(node2vec_model.wv[ontology_id])
-            if vector.shape[0] != embedding_layer.embedding_dim:
-                raise ValueError(f"Vector for {ontology_id} has wrong shape.")
+            vec = node2vec_model.wv[ontology_id]
+            assert vec.shape[0] == embedding_dim, f"Embedding dim mismatch for {ontology_id}"
             with torch.no_grad():
-                embedding_layer.weight[idx] = vector
+                embedding_layer.weight[token_id] = torch.tensor(vec, dtype=torch.float32)
+            num_assigned += 1
+        else:
+            print(f"[WARN] No Node2Vec embedding found for {ontology_id}, skipping.")
+
+    print(f"[INFO] Assigned {num_assigned} Node2Vec embeddings for tag <{tag}=...>")
+
 
 def generate_metadata_embeddings(node2vecModel: Any) -> Dict[str, np.ndarray]:
     """
