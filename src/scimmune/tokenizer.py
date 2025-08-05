@@ -107,16 +107,22 @@ class ScImmuneTokenizer(PreTrainedTokenizer):
 
         return tokenized_data
 
-    def save_vocab(self, save_directory: str) -> str:
-        """Save the updated vocab to a file in save_directory/vocab.json"""
+    def save_vocabulary(self, save_directory: str, filename_prefix: str = None):
+        """
+        Save the vocabulary to a JSON file in the given directory.
+
+        Returns:
+            Tuple[str]: Path to the saved vocabulary file
+        """
         import os
         import json
+        if not os.path.isdir(save_directory):
+            os.makedirs(save_directory)
 
-        file_path = os.path.join(save_directory, "vocab.json")
-        os.makedirs(save_directory, exist_ok=True)
+        filename = (filename_prefix + "-" if filename_prefix else "") + "vocab.json"
+        vocab_file = os.path.join(save_directory, filename)
 
-        # Inverse mapping to make token → ID
-        vocab_to_save = self.vocab
-        with open(file_path, "w") as f:
-            json.dump(vocab_to_save, f, indent=2)
-        return file_path
+        with open(vocab_file, "w", encoding="utf-8") as f:
+            json.dump(self.tokens_to_ids, f, indent=2)
+
+        return (vocab_file,)
