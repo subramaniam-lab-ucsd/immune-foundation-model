@@ -9,11 +9,11 @@ import torch.nn.functional as F
 from torch import Tensor
 from torch.nn.modules.transformer import _get_clones
 
-from flash_attn.flash_attn_interface import flash_attn_unpadded_qkvpacked_func
+from flash_attn import flash_attn_varlen_qkvpacked_func
 from flash_attn.bert_padding import unpad_input, pad_input
-from flash_attn.flash_attention import FlashAttention
+from flash_attn.modules.mha import FlashSelfAttention
 from flash_attn.modules.mha import FlashCrossAttention
-from .layers import MultiheadAttention
+from layers import MultiheadAttention
 
 
 class FlashscGPTMHA(nn.Module):
@@ -49,7 +49,7 @@ class FlashscGPTMHA(nn.Module):
         ), "Only support head_dim <= 128 and divisible by 8"
 
         self.Wqkv = nn.Linear(embed_dim, 3 * embed_dim, bias=bias, **factory_kwargs)
-        self.self_attn = FlashAttention(attention_dropout=attention_dropout)
+        self.self_attn = FlashSelfAttention(attention_dropout=attention_dropout)
         self.cross_attn = MultiheadAttention(
             embed_dim,
             num_heads,

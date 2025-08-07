@@ -12,12 +12,12 @@ from torch.nn import TransformerEncoder, TransformerEncoderLayer
 from torch.distributions import Bernoulli
 from tqdm import trange
 
-from flash_attn.flash_attention import FlashMHA
-from .flash_layers import FlashscGPTLayer, FlashscGPTGenerator
+from flash_attn.modules.mha import FlashSelfAttention
+from flash_layers import FlashscGPTLayer, FlashscGPTGenerator
 
 
-from .dsbn import DomainSpecificBatchNorm1d
-from .grad_reverse import grad_reverse
+from dsbn import DomainSpecificBatchNorm1d
+from grad_reverse import grad_reverse
 from transformers import PreTrainedModel, PretrainedConfig
 from transformers.file_utils import ModelOutput
 
@@ -908,7 +908,7 @@ class FlashTransformerEncoderLayer(nn.Module):
     ) -> None:
         factory_kwargs = {"device": device, "dtype": dtype}
         super().__init__()
-        self.self_attn = FlashMHA(
+        self.self_attn = FlashSelfAttention(
             embed_dim=d_model,
             num_heads=nhead,
             batch_first=batch_first,

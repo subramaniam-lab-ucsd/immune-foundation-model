@@ -13,7 +13,7 @@ from torch.distributions import Bernoulli
 from tqdm import trange
 
 try:
-    from flash_attn.flash_attention import FlashMHA
+    from flash_attn.modules.mha import FlashSelfAttention
     from .flash_layers import FlashscGPTLayer, FlashscGPTGenerator
 except ImportError:
     import warnings
@@ -810,7 +810,7 @@ class FlashTransformerEncoderLayer(nn.Module):
     ) -> None:
         factory_kwargs = {"device": device, "dtype": dtype}
         super().__init__()
-        self.self_attn = FlashMHA(
+        self.self_attn = FlashSelfAttention(
             embed_dim=d_model,
             num_heads=nhead,
             batch_first=batch_first,
