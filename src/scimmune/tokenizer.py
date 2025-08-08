@@ -1,8 +1,9 @@
 import numpy as np
 import torch
+import json
+import os
 from typing import List, Tuple, Optional, Union
 from transformers import PreTrainedTokenizer
-from utils import load_vocab
 
 
 class ScImmuneTokenizer(PreTrainedTokenizer):
@@ -14,9 +15,8 @@ class ScImmuneTokenizer(PreTrainedTokenizer):
         unk_token: str = "<unk>",
         **kwargs
     ):
-        # Load vocab
         self.vocab_file = vocab_file
-        self.vocab = load_vocab(vocab_file)
+        self.vocab = self._load_vocab(vocab_file)
         self.ids_to_tokens = {v: k for k, v in self.vocab.items()}
 
         super().__init__(
@@ -26,10 +26,13 @@ class ScImmuneTokenizer(PreTrainedTokenizer):
             **kwargs
         )
 
-        # Register special token IDs
         self.cls_token_id = self.convert_tokens_to_ids(cls_token)
         self.pad_token_id = self.convert_tokens_to_ids(pad_token)
         self.unk_token_id = self.convert_tokens_to_ids(unk_token)
+
+    def _load_vocab(self, vocab_file: str) -> dict:
+        with open(vocab_file, "r") as f:
+            return json.load(f)
 
     def get_vocab(self):
         return self.vocab
@@ -76,7 +79,7 @@ class ScImmuneTokenizer(PreTrainedTokenizer):
         """
         tokenized_data = []
 
-        for i in range(len(data)):
+        for i in range(data.shape[0]):
             row = data[i]
             if include_zero_gene:
                 values = row
@@ -101,11 +104,23 @@ class ScImmuneTokenizer(PreTrainedTokenizer):
                 [self.convert_tokens_to_ids(t) for t in tokens],
                 dtype=torch.long
             )
-            values = torch.from_numpy(values).float()
+            values = torch.from_numpy(values.astype(np.float32))
 
             tokenized_data.append((input_ids, values))
 
         return tokenized_data
+
+    def extract_metadata_tokens(self, obs_row: dict, field_to_prefix: dict) -> List[str]:
+        """
+        Generate metadata tokens based on `field_to_prefix` mapping.
+        Example: {"cell_type_ontology_term_id": "cell_type"}
+        """
+        tokens = []
+        for field, prefix in field_to_prefix.items():
+            val = obs_row.get(field)
+            if isinstance(val, str) and "=" not in val and val != "NA":
+                tokens.append(f"<{prefix}={val}>")
+        return tokens
 
     def save_vocabulary(self, save_directory: str, filename_prefix: str = None):
         """
@@ -114,8 +129,6 @@ class ScImmuneTokenizer(PreTrainedTokenizer):
         Returns:
             Tuple[str]: Path to the saved vocabulary file
         """
-        import os
-        import json
         if not os.path.isdir(save_directory):
             os.makedirs(save_directory)
 
@@ -123,6 +136,6 @@ class ScImmuneTokenizer(PreTrainedTokenizer):
         vocab_file = os.path.join(save_directory, filename)
 
         with open(vocab_file, "w", encoding="utf-8") as f:
-            json.dump(self.tokens_to_ids, f, indent=2)
+            json.dump(self.vocab, f, indent=2)
 
         return (vocab_file,)

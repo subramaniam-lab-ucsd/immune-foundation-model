@@ -5,6 +5,7 @@ from typing import Optional, Dict
 
 from transformers import PreTrainedModel
 from config import ScImmuneConfig
+# from flash_attn import flash_attention
 
 
 class ExprDecoder(nn.Module):
@@ -39,30 +40,30 @@ class ExprDecoder(nn.Module):
             "zero_probs": zero_probs
         }  # TODO: what about inference / bernoulli?
 
-class FlashTransformerEncoderLayer(nn.Module):
+# class FlashTransformerEncoderLayer(nn.Module):
 
-    def __init__(self,
-                 d_model,
-                 nhead,
-                 dim_feedforward,
-                 dropout,
-                 norm_scheme="post"):
-        super().__init__()
-        from flash_attn.flash_attention import FlashMHA
+#     def __init__(self,
+#                  d_model,
+#                  nhead,
+#                  dim_feedforward,
+#                  dropout,
+#                  norm_scheme="post"):
+#         super().__init__()
+#         from flash_attn.flash_attention import FlashMHA
 
-        self.self_attn = FlashMHA(
-            embed_dim=d_model,
-            num_heads=nhead,
-            dropout=dropout,
-            attention_dropout=dropout,
-        )
-        self.feed_forward = nn.Sequential(nn.Linear(d_model, dim_feedforward),
-                                          nn.GELU(), nn.Dropout(dropout),
-                                          nn.Linear(dim_feedforward, d_model))
-        self.norm1 = nn.LayerNorm(d_model)
-        self.norm2 = nn.LayerNorm(d_model)
-        self.dropout = nn.Dropout(dropout)
-        self.norm_scheme = norm_scheme
+#         self.self_attn = FlashMHA(
+#             embed_dim=d_model,
+#             num_heads=nhead,
+#             dropout=dropout,
+#             attention_dropout=dropout,
+#         )
+#         self.feed_forward = nn.Sequential(nn.Linear(d_model, dim_feedforward),
+#                                           nn.GELU(), nn.Dropout(dropout),
+#                                           nn.Linear(dim_feedforward, d_model))
+#         self.norm1 = nn.LayerNorm(d_model)
+#         self.norm2 = nn.LayerNorm(d_model)
+#         self.dropout = nn.Dropout(dropout)
+#         self.norm_scheme = norm_scheme
 
 # Helper class to ensure we have the correct attention structure
 class MultiheadAttentionWithBias(nn.Module):
